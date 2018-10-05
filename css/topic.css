@@ -1,0 +1,114 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.site{
+	display: flex;
+	flex-direction: column;
+}
+.jk-heared{
+	background:#fff;
+	height: 70px;
+	line-height: 70px;
+	border-bottom:1px solid #e4e4e4;
+}
+.jk-heared .header{
+	width: 1000px;
+	margin:0 auto;
+}
+.header .header-logo{
+	display: inline-block;
+}
+.header .header-logo a{
+	margin-top:15px;
+	float: left;
+}
+.header-logo a img{
+	display: block;
+	width: 100px;
+	height: 37px;
+}
+.jk-heared .login{
+	float: right;
+	width: 130px;
+	height: 70px;
+	line-height: 70px;
+}
+.login .notlogin{
+	display: inline-block;
+	float: right;
+}
+.login .notlogin i{
+	border-left: 1px solid #ccc;
+	height: 15px;
+	display: inline-block;
+	float: left;
+	margin-top:27px;
+}
+.login .notlogin a{
+	padding:0 15px;
+	float: left;
+	font-size: 14px;
+	text-decoration: none;
+	color:#555555;
+}
+.banner{
+	height: 426px;
+	text-align: center;
+	background:url(../img/banner.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	min-width: 1000px;
+}
+.banner .banner-title{
+	font-size: 40px;
+	color: #fff;
+	text-align: center;
+	font-weight: 400;
+	padding-top: 150px;
+}
+.nav{
+	height: 70px;
+	width: 100%;
+	min-width: 1000px;
+	display: flex;
+	justify-content: center;
+	background:rgba(21,49,136,0.95);
+}
+.nav ul{
+	width:960px; 
+	display:flex;
+	list-style: none;
+}
+.nav ul li{
+	flex: 1;
+	text-align: center;
+	line-height: 70px;
+	cursor: pointer;
+	color:#fff;
+	font-size: 16px;
+}
+.nav ul li:hover{
+	background:rgba(45,70,148,0.95);
+	color: #fff;
+}
+.nav ul li.active{
+	background:rgba(45,70,148,0.95);
+	color: #fff;
+}
+.introduce{
+	padding-top: 60px;
+}
+.introduce-title{
+	background:url(../img/introductions.png.) no-repeat 0 buttom;
+	height: 50px;
+	width: 140px;
+
+}
+
+
+
+
+
+
+
