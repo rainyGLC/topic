@@ -13,13 +13,11 @@
 	display: flex;
 	flex-direction: column;
 }
-.jk-heared{
+.jk-header{
 	background:#fff;
-	height: 70px;
-	line-height: 70px;
 	border-bottom:1px solid #e4e4e4;
 }
-.jk-heared .header{
+.jk-header .header{
 	width: 1000px;
 	margin:0 auto;
 }
@@ -35,7 +33,7 @@
 	width: 100px;
 	height: 37px;
 }
-.jk-heared .login{
+.jk-header .login{
 	float: right;
 	width: 130px;
 	height: 70px;
@@ -87,6 +85,13 @@
 	display:flex;
 	list-style: none;
 }
+.fixed-top{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	z-index: 999;
+}
 .nav ul li{
 	flex: 1;
 	text-align: center;
@@ -100,7 +105,8 @@
 	color: #fff;
 }
 .nav ul li.active{
-	background:rgba(45,70,148,0.95);
+	/*background:rgba(45,70,148,0.95);*/
+	background:red;
 	color: #fff;
 }
 .introduce{
@@ -203,8 +209,10 @@
 	width: 700px;
 	float: left;
 }
-.lesson .list-title{
-	height: 40px;
+.lesson .lesson-list{
+	overflow: hidden;
+}
+.list-title{
 	background:#f7f7f7;
 	font-size: 14px;
 	line-height: 40px;
@@ -213,7 +221,6 @@
 	position: relative;
 	border-top: 1px solid #e4e4e4;
 	cursor: pointer;
-	overflow: hidden;
 }
 .list-title .close{
 	display: inline-block;
@@ -228,7 +235,11 @@
 }
 .list-title .rotate{
 	transform: rotate(-90deg);
+	transition: all .2s ease;
 }
+/*.list-title:hover{
+	transform: rotate(45deg);
+}*/
 .lesson-download{
 	display: inline-block;
 	width: 16px;
@@ -239,7 +250,7 @@
 	right:35px;
 }
 .list-item{
-	height: 40px;
+	height:0;
 	background:#fff;
 	font-size:12px;
 	line-height: 40px;
@@ -248,12 +259,16 @@
 	position: relative;
 	border-bottom:1px solid #f5f5f5;
 	cursor: pointer;
-	display: none;
 }
 
-.active{
+.list-item .active{
+	line-height: 40px;
 	color:#009df7;
 }
+.list-item .active .list-item{
+	line-height: 20px;
+}
+
 .lesson-time{
 	float: right;
 	margin-right: 20px;
