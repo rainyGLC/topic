@@ -479,15 +479,22 @@
 			});
 		},
 		windowScroll:function(e){
-			let timestampNow = Date.now();
-			let timestampLast = navBar.data.timestamp;
-			let timestampOffset = navBar.data.timestampOffset;
-			let timeLock = (timestampNow - timestampLast) >timestampOffset;
-			if(!navBar.data.isLock && timeLock){
-				navBar.data.timestamp = timestampNow;
+			// let timestampNow = Date.now();
+			// let timestampLast = navBar.data.timestamp;
+			// let timestampOffset = navBar.data.timestampOffset;
+			// let timeLock = (timestampNow - timestampLast) >timestampOffset;
+			// if(!navBar.data.isLock && timeLock){
+			// 	navBar.data.timestamp = timestampNow;
+			// 	navBar.actionScrollEvent();
+			// }
+			
+			let scrollTop = $(window).scrollTop();
+			let navigatorHeight = navBar.data.navigatorHeight;
+			let shouldfixedTop = scrollTop > (navBar.data.bannerHeight + navBar.data.headerHeiht);
+			if(shouldfixedTop){
+				// scrollTop = navBar.data.navigatorHeight;
 				navBar.actionScrollEvent();
 			}
-			//console.log(timeLock);//true
 		},
 		actionScrollEvent:function(){
 			let scrollTop = $(window).scrollTop();
@@ -541,7 +548,7 @@
 			$('.teachers-list').append(swiperFirstItem);
 			$('.teachers-list').prepend(swiperLastItem);
 			$('.teachers-list').css('left', - swiperItemWidth + 'px');
-			console.log('teachers-list');
+			// console.log('teachers-list');
 		},
 		arrowPrev:function(){
 			let prev_index = navBar.data.index - 1;

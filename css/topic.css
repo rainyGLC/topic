@@ -3,19 +3,19 @@
 	padding: 0;
 }
 .clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
-    height: 0;
-    overflow: hidden;
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
 }
 .site{
 	display: flex;
 	flex-direction: column;
 }
 .jk-header{
-	background:#fff;
 	border-bottom:1px solid #e4e4e4;
+	background:#fff;
 }
 .jk-header .header{
 	width: 1000px;
