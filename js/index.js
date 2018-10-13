@@ -1,14 +1,14 @@
 	const navBar = {
 		data:{
 			isLock:false,
-			timestamp:0,
+			timestamp:10,
 			timestampOffset:100,
 			navigatorHeight:70,//导航条高度
 			headerHeiht:71,//头部高度
 			bannerHeight:426,
 			sectionOffset:[],
 			swiperItemWidth:$('.teachers-item').width(),//当前容量宽度
-			swiperItemLen:$('.teachers-item').length,//重设前实际量
+			swiperItemLen:$('.teachers-item').length,
 			index:0,//当前第几个，默认第一项
 			swiperSpeed:500,//速度
 		},
@@ -51,22 +51,22 @@
 			});
 		},
 		windowScroll:function(e){
-			// let timestampNow = Date.now();
-			// let timestampLast = navBar.data.timestamp;
-			// let timestampOffset = navBar.data.timestampOffset;
-			// let timeLock = (timestampNow - timestampLast) >timestampOffset;
-			// if(!navBar.data.isLock && timeLock){
-			// 	navBar.data.timestamp = timestampNow;
-			// 	navBar.actionScrollEvent();
-			// }
-			
-			let scrollTop = $(window).scrollTop();
-			let navigatorHeight = navBar.data.navigatorHeight;
-			let shouldfixedTop = scrollTop > (navBar.data.bannerHeight + navBar.data.headerHeiht);
-			if(shouldfixedTop){
-				// scrollTop = navBar.data.navigatorHeight;
+			let timestampNow = Date.now();
+			let timestampLast = navBar.data.timestamp;
+			let timestampOffset = navBar.data.timestampOffset;
+			let timeLock = (timestampNow - timestampLast) >timestampOffset;
+			if(!navBar.data.isLock && timeLock){
+				navBar.data.timestamp = timestampNow;
 				navBar.actionScrollEvent();
 			}
+			
+			// let scrollTop = $(window).scrollTop();
+			// let navigatorHeight = navBar.data.navigatorHeight;
+			// let shouldfixedTop = scrollTop > (navBar.data.bannerHeight + navBar.data.headerHeiht);
+			// if(shouldfixedTop){
+			// 	// scrollTop = navBar.data.navigatorHeight;
+			// 	navBar.actionScrollEvent();
+			// }
 		},
 		actionScrollEvent:function(){
 			let scrollTop = $(window).scrollTop();
@@ -116,25 +116,36 @@
 			let swiperItemLen = this.data.swiperItemLen;
 			//console.log(swiperItemLen);//11
 			let swiperFirstItem = $('.teachers-item').eq(0).clone();
-			let swiperLastItem = $('.teachers-item').eq(0).clone(swiperItemLen -1).clone();
+			let swiperSecondItem = $('.teachers-item').eq(1).clone();
+			let swiperThirdItem = $('.teachers-item').eq(2).clone();
+			let swiperFourItem = $('.teachers-item').eq(3).clone();
+			let swiperLastItem = $('.teachers-item').eq(swiperItemLen -1).clone();
+			let swiperLastItemTWO = $('.teachers-item').eq(swiperItemLen -2).clone();
+			let swiperLastItemThree = $('.teachers-item').eq(swiperItemLen -3).clone();
+			let swiperLastItemFour = $('.teachers-item').eq(swiperItemLen -4).clone();
 			$('.teachers-list').append(swiperFirstItem);
+			$('.teachers-list').append(swiperSecondItem);
+			$('.teachers-list').append(swiperThirdItem);
+			$('.teachers-list').append(swiperFourItem);
 			$('.teachers-list').prepend(swiperLastItem);
+			$('.teachers-list').prepend(swiperLastItemTWO);
+			$('.teachers-list').prepend(swiperLastItemThree);
+			$('.teachers-list').prepend(swiperLastItemFour);
 			$('.teachers-list').css('left', - swiperItemWidth + 'px');
-			// console.log('teachers-list');
 		},
 		arrowPrev:function(){
 			let prev_index = navBar.data.index - 1;
 			navBar.gotoIndex(prev_index);
 		},
 		arrowNext:function(){
-			let next_index = navBar.data.index + 1;
+			let next_index = navBar.data.index +1;
 			navBar.gotoIndex(next_index);
 		},
 		//页面发生重设
 		resetSwipterWidth:function(){
 			let active_index =navBar.data.index;
 			let swiperItemWidth = $('.teachers-item').width();
-			let translateX = (swiperItemWidth + swiperItemWidth * active_index)
+			let translateX = (swiperItemWidth + swiperItemWidth * active_index);
 			$('.teachers-list').animate({'left': - translateX + 'px'},40)
 			navBar.data.swiperItemWidth = swiperItemWidth;
 		},
@@ -143,6 +154,7 @@
 			let swiperItemWidth = navBar.data.swiperItemWidth;
 			let swiperSpeed = navBar.data.swiperSpeed;
 			let translateX = (swiperItemWidth + swiperItemWidth * index);
+			console.log(translateX);
 			let isLock = navBar.data.isLock;
 			if(isLock){
 				return
@@ -159,7 +171,7 @@
 				}
 				if(index === swiperItemLen){
 					index = 0;
-					swiperListEle.css('left', - swiperItemWidth +'px');
+					swiperListEle.css('left',- swiperItemWidth + 'px');
 				}
 				navBar.data.index = index;
 				navBar.data.isLock = false;
