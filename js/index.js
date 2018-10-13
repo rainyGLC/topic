@@ -131,7 +131,7 @@
 			$('.teachers-list').prepend(swiperLastItemTWO);
 			$('.teachers-list').prepend(swiperLastItemThree);
 			$('.teachers-list').prepend(swiperLastItemFour);
-			$('.teachers-list').css('left', - 1000 + 'px');
+			$('.teachers-list').css('left', - swiperItemWidth*4 + 'px');
 		},
 		arrowPrev:function(){
 			let prev_index = navBar.data.index - 1;
@@ -153,8 +153,8 @@
 			let swiperItemLen = navBar.data.swiperItemLen;
 			let swiperItemWidth = navBar.data.swiperItemWidth;
 			let swiperSpeed = navBar.data.swiperSpeed;
-			let translateX = (swiperItemWidth + swiperItemWidth * index);
-			console.log(translateX);
+			let translateX = (swiperItemWidth*4 + swiperItemWidth * index);
+			// console.log(index, translateX);
 			let isLock = navBar.data.isLock;
 			if(isLock){
 				return
@@ -165,13 +165,13 @@
 			swiperListEle.animate({
 				'left': - translateX + 'px'
 			},swiperSpeed,function(){
-				if(index === -1){
-					index = swiperItemLen -1;
-					swiperListEle.css('left', - swiperItemWidth * swiperItemLen +'px');
+				if(index === -4){
+					index = swiperItemLen -4;
+					swiperListEle.css('left', - swiperItemWidth*swiperItemLen +'px');
 				}
 				if(index === swiperItemLen){
 					index = 0;
-					swiperListEle.css('left',- swiperItemWidth + 'px');
+					swiperListEle.css('left',- swiperItemWidth*4 + 'px');
 				}
 				navBar.data.index = index;
 				navBar.data.isLock = false;
