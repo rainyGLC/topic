@@ -131,14 +131,14 @@
 			$('.teachers-list').prepend(swiperLastItemTWO);
 			$('.teachers-list').prepend(swiperLastItemThree);
 			$('.teachers-list').prepend(swiperLastItemFour);
-			$('.teachers-list').css('left', - swiperItemWidth + 'px');
+			$('.teachers-list').css('left', - 1000 + 'px');
 		},
 		arrowPrev:function(){
 			let prev_index = navBar.data.index - 1;
 			navBar.gotoIndex(prev_index);
 		},
 		arrowNext:function(){
-			let next_index = navBar.data.index +1;
+			let next_index = navBar.data.index + 1;
 			navBar.gotoIndex(next_index);
 		},
 		//页面发生重设
@@ -146,7 +146,7 @@
 			let active_index =navBar.data.index;
 			let swiperItemWidth = $('.teachers-item').width();
 			let translateX = (swiperItemWidth + swiperItemWidth * active_index);
-			$('.teachers-list').animate({'left': - translateX + 'px'},40)
+			$('.teachers-list').animate({'left': - translateX + 'px'},40);
 			navBar.data.swiperItemWidth = swiperItemWidth;
 		},
 		gotoIndex:function(index){
@@ -167,7 +167,7 @@
 			},swiperSpeed,function(){
 				if(index === -1){
 					index = swiperItemLen -1;
-					swiperListEle.css('left', -swiperItemWidth * swiperItemLen +'px');
+					swiperListEle.css('left', - swiperItemWidth * swiperItemLen +'px');
 				}
 				if(index === swiperItemLen){
 					index = 0;
